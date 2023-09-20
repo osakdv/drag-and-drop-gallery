@@ -1,0 +1,82 @@
+.home-content {
+    margin: 0em 0em 0 2em;
+}
+
+.add-img-container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.add-img-container input[type = "file"]  {
+    display: none;
+} 
+
+
+label.add-img-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+.add-icon {
+    font-size: 1em;
+}
+
+.add-img-container small {
+    color: rgb(29, 29, 29);
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    margin-top: 2em;
+    margin-right: 1.6em;
+    
+}
+
+/* card component styling */
+.card {
+    margin-top: 1em;
+}
+
+.card .img-container {
+    width: 270px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.card .img-container img {
+    width: inherit;
+}
+
+.card .about-img {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+}
+
+.card small {
+    margin-top: .5em;
+    font-weight: 600;
+    font-size: .7rem;
+    color: rgb(138, 138, 138);
+}
+
+.card small.date-added {
+    margin-top: .5em;
+    font-weight: 600;
+    font-size: .5rem;
+    color: rgb(169, 168, 168);
+}
