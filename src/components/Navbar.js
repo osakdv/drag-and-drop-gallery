@@ -16,9 +16,10 @@ const Navbar = () => {
 
         {/* filterable links */}
         <ul>
-          <li>Culture</li>
-          <li>Culture</li>
-          <li>Culture</li>
+          <li>Album</li>
+          <li>Book</li>
+          <li>Art</li>
+          <li>Painting</li>
           <li>Culture</li>
         </ul>
       </div>
@@ -28,7 +29,7 @@ const Navbar = () => {
         <div className="search-field">
           <input type="text" name="" id="search-input" />
           <label htmlFor="search-input">
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} />
           </label>
         </div>
 

@@ -63,10 +63,10 @@ const getImgName = (e) => {
             />
             <datalist id="tags">
               <option value="Culture" />
-              <option value="Street Art" />
-              <option value="Chrome" />
-              <option value="Opera" />
-              <option value="Safari" />
+              <option value="Album" />
+              <option value="Book" />
+              <option value="Art" />
+              <option value="Painting" />
             </datalist>
 
             <div className="tags-selected">
