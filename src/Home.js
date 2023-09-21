@@ -279,7 +279,7 @@ const Home = () => {
       {isLoggedIn === false ? <Signin loginHandler={loginHandler} /> : null}
 
       {/* nav */}
-      <Navbar handFiltered={filterByLink} search={searchField} />
+      <Navbar handFiltered={filterByLink} search={searchField} signinBtn={loginHandler} loginState={isLoggedIn}/>
       {/* marquee */}
       {/* img content */}
       <div className="home-content">
