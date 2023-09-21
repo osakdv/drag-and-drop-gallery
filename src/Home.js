@@ -14,6 +14,7 @@ import img4 from "./imgs/4.png";
 import img5 from "./imgs/5.png";
 import img6 from "./imgs/6.jpeg";
 import img7 from "./imgs/7.png";
+import Preloader from "./components/Preloader";
 
 const Home = () => {
   const imgsDisplayArea = useRef();
@@ -22,7 +23,7 @@ const Home = () => {
   const [imgSrc, setImgSrc] = useState();
   let newImgTags = [];
 
-  const [filterBy, setFilterBy] = useState("");
+  const [preLoader, setPreloader] = useState(true);
   const [imgDetailPopup, setImgDetailPopup] = useState(false);
   const [originalData, setOriginalData] = useState([
     {
@@ -263,13 +264,17 @@ const Home = () => {
   const searchField = (val) => {
     console.log(val);
     setAllImgDetails(originalData);
+    let filteredSearch = allImgDetails.filter((detail) => detail.title === val || detail.tags.includes(val));
+    console.log(filteredSearch)
 
-    let filteredSearch = allImgDetails.forEach((detail) => {
-      return detail.title === val || detail.tags.includes(val);
-    });
+    if(filteredSearch) setAllImgDetails(filteredSearch);
 
-    setAllImgDetails(filteredSearch);
   };
+
+  // preloader
+  setTimeout(() => {
+    setPreloader(false)
+  }, 3000);
 
   return (
     <div className="home-page">
@@ -282,6 +287,7 @@ const Home = () => {
       <Navbar handFiltered={filterByLink} search={searchField} signinBtn={loginHandler} loginState={isLoggedIn}/>
       {/* marquee */}
       {/* img content */}
+      {}
       <div className="home-content">
         <div className="add-img-container">
           <div className="add-img">
@@ -327,6 +333,7 @@ const Home = () => {
             dropImg(e);
           }}
         >
+          {preLoader ? <Preloader /> : null}
           {allImgDetails &&
             allImgDetails.map((detail, index) => {
               return (
