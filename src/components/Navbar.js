@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const Navbar = ({handFiltered}) => {
+const Navbar = ({handFiltered, search}) => {
   const filterHandler = (name) => {
     handFiltered(name)
   }
@@ -32,7 +32,7 @@ const Navbar = ({handFiltered}) => {
       <div className="search-and-signin">
         {/* seach icon */}
         <div className="search-field">
-          <input type="text" name="" id="search-input" />
+          <input type="text" name="" id="search-input" onChange={e => search(e.target.value.trim())}/>
           <label htmlFor="search-input">
             <FontAwesomeIcon className="search-icon" icon={faMagnifyingGlass} />
           </label>
