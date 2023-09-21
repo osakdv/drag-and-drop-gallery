@@ -39,6 +39,8 @@ label.add-img-label {
 }
 
 .card-container {
+    width: 100%;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     margin-top: 2em;
@@ -53,14 +55,27 @@ label.add-img-label {
 
 .card .img-container {
     width: 270px;
+    height: 300px;
     border-radius: 14px;
     overflow: hidden;
+    position: relative;
+}
+
+.img-container .overlay {
+    position: absolute;
+    top: 0;
+    background-color: transparent;
+    width: 270px;
+    height: 300px;
+
 }
 
 .card .img-container img {
     width: inherit;
     height: inherit;
+    position: relative;
 }
+
 
 .card .about-img {
     width: 270px;
@@ -72,6 +87,7 @@ label.add-img-label {
     font-size: 1rem;
     font-weight: 600;
     display: block;
+    margin-top: .5em;
 }
 
 .card small {
@@ -86,4 +102,12 @@ label.add-img-label {
     font-weight: 600;
     font-size: .5rem;
     color: rgb(169, 168, 168);
+}
+
+.card-container-active {
+    border-top: 1px solid rgb(157, 255, 165);
+}
+
+.element-drag {
+    opacity: .5;
 }

@@ -107,7 +107,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* TODO: blur functionality */
+  z-index: 1000;
 }
 
 .popup-bg .popup-add-image-content {

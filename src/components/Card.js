@@ -1,11 +1,13 @@
-const Imgcard = ({detail}) => {
+import { useState } from "react";
 
-    
+const Imgcard = ({detail, over, start, index, end}) => {    
     return(
-        <div className="card" draggable="true">
+        <div className="card" draggable onDragEnd={end} onDragStart={() => {start(index)}} onDragOver={(e) => over(index)}>
             {/* image */}
             <div className="img-container">
+                
                 <img src={detail.img} alt={detail.title}/>
+                <div className="overlay"></div>
             </div>
             {/* text */}
             <div className="about-img">
