@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const Navbar = () => {
+const Navbar = ({handFiltered}) => {
+  const filterHandler = (name) => {
+    handFiltered(name)
+  }
+  
   return (
     <div className="navbar">
       {/*  */}
@@ -16,11 +20,12 @@ const Navbar = () => {
 
         {/* filterable links */}
         <ul>
-          <li>Album</li>
-          <li>Book</li>
-          <li>Art</li>
-          <li>Painting</li>
-          <li>Culture</li>
+          <li onClick={() => {filterHandler("All")}}>All</li>
+          <li onClick={() => {filterHandler("Album")}}>Album</li>
+          <li onClick={() => {filterHandler("Book")}}>Book</li>
+          <li onClick={() => {filterHandler("Art")}}>Art</li>
+          <li onClick={() => {filterHandler("Painting")}}>Painting</li>
+          <li onClick={() => {filterHandler("Culture")}}>Culture</li>
         </ul>
       </div>
 

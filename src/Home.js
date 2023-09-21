@@ -19,7 +19,32 @@ const Home = () => {
   const [imgSrc, setImgSrc] = useState();
   let newImgTags = [];
 
+  const [filterBy, setFilterBy] = useState("");
   const [imgDetailPopup, setImgDetailPopup] = useState(false);
+  const [originalData, setOriginalData] = useState(
+    [
+        {
+          img: img1,
+          title: "Pattern Art",
+          tags: ["Culture", "Art"],
+        },
+        {
+          img: img2,
+          title: "Senegal Senegal",
+          tags: ["Book", "Art"],
+        },
+        {
+          img: img3,
+          title: "This Marijata",
+          tags: ["Album", "Art"],
+        },
+        {
+          img: img4,
+          title: "Mozambique Rho.",
+          tags: ["Book"],
+        },
+      ]
+  )
   const [allImgDetails, setAllImgDetails] = useState([
     {
       img: img1,
@@ -80,6 +105,7 @@ const Home = () => {
     newImgTags = tags;
     const newImg = newImgDetails(imgSrc, newImgTitle, newImgTags);
     setAllImgDetails([...allImgDetails, newImg]);
+    setOriginalData([...originalData, newImg])
     setImgDetailPopup(false);
   };
 
@@ -152,12 +178,65 @@ const Home = () => {
     const draggedData = e.dataTransfer;
     const files = draggedData.files;
     Array.from(files).forEach((file) => {
+        if (!isLoggedIn) {
+            setIsLoggedIn(false);
+            setInputDisable(true);
+            return;
+          } else {
+            setInputDisable(true);
+          }
       fileHandler(file, file.name, file.type);
     });
   };
 
   const loginHandler = (state) => {
     setIsLoggedIn(state);
+  };
+
+  //   navbar filter
+  const resetFilter = () => {
+    setAllImgDetails(originalData);
+    console.log(allImgDetails)
+  }
+  
+  const filterFunc = (val) => {
+    resetFilter()
+    
+    let filteredData;
+    filteredData = allImgDetails.filter((data) => data.tags.includes(val));
+    setAllImgDetails(filteredData);
+  };
+
+  const filterByLink = (link) => {
+    switch (link) {
+      case "All":
+        setAllImgDetails([...originalData]);
+        break;
+
+      case "Album":
+        filterFunc("Album");
+        break;
+
+      case "Book":
+        filterFunc("Book");
+        break;
+
+      case "Art":
+        filterFunc("Art");
+        break;
+
+      case "Culture":
+        filterFunc("Culture");
+        break;
+
+        case "Painting":
+        filterFunc("Painting");
+        break;
+        
+
+      default:
+        break;
+    }
   };
 
   return (
@@ -168,7 +247,7 @@ const Home = () => {
       {isLoggedIn === false ? <Signin loginHandler={loginHandler} /> : null}
 
       {/* nav */}
-      <Navbar />
+      <Navbar handFiltered={filterByLink} />
       {/* marquee */}
       {/* img content */}
       <div className="home-content">
