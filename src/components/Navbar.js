@@ -40,7 +40,7 @@ const Navbar = ({handFiltered, search, signinBtn, loginState}) => {
         </div>
 
         {/* sigin */}
-        <button onClick={() => !loginState ? signinBtn(false) : null}>Sign in</button>
+        <button onClick={() => !loginState ? signinBtn(false) : null}>{loginState? "Log out" : "Signin"}</button>
       </div>
     </div>
   );

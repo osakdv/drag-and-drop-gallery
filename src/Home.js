@@ -89,7 +89,7 @@ const Home = () => {
       tags: ["Book"],
     },
   ]);
-  const [isLoggedIn, setIsLoggedIn] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [inputDisable, setInputDisable] = useState(false);
 
   const newImgDetails = (imgUrl, title, tags) => {
