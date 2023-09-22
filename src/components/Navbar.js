@@ -17,6 +17,7 @@ const Navbar = ({handFiltered, search, signinBtn, loginState}) => {
             W<span>.</span>
           </div>
         </Link>
+        
 
         {/* filterable links */}
         <ul>

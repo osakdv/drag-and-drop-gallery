@@ -256,5 +256,21 @@ label {
 }
 
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 400px) {
+  .navbar {
+    flex-direction: column;
+  }
+  
+  .logo-and-links {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .logo-and-links ul {
+    gap: .4em;
+  }
+
+  .search-and-signin {
+    flex-direction: column;
+  }
 }
